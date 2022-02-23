@@ -23,11 +23,6 @@ export class CouchbaseConnectionFactory {
     if (conn.connectionConfig.bucketName) {
       await conn.openBucket(conn.connectionConfig.bucketName)
     }
-    console.log("CONNECTION CREATED")
-    console.log(JSON.stringify(
-      conn
-    ))
-    console.log("==========================")
     return conn;
   }
 

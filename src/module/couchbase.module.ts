@@ -21,8 +21,9 @@ export class CouchbaseModule {
     };
   }
 
-  static forFeature(entities: Function[]): DynamicModule {
+  static forEntity(entities: Function[] | any): DynamicModule {
     const providers = createCouchbaseProviders(entities);
+    console.log("test:" + providers)
     return {
       module: CouchbaseModule,
       providers,
