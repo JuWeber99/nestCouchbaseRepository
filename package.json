@@ -1,0 +1,69 @@
+{
+  "name": "@scalio-oss/nest-couchbase",
+  "description": "Couchbase module for Nest framework",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prebuild": "yarn build:clean",
+    "build:clean": "cd dist && rm -rf `ls | grep -v \"LICENSE\\|package.json\\|README.md\\|.npmrc\"`",
+    "build": "npx tsc -b tsconfig.build.json",
+    "commit": "npx git-cz",
+    "lint": "npx tslint 'src/*.ts'",
+    "format": "npx pretty-quick --pattern 'src/**/*.ts'",
+    "test:e2e": "npx jest -c=jest.config.js e2e/ --verbose --runInBand",
+    "start": "npx nodemon -w ./integration -e ts node_modules/.bin/ts-node integration/main.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format --staged",
+      "commit-msg": "npx validate-commit-msg"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "helpMessage": "Use \"yarn commit\" instead"
+    }
+  },
+  "dependencies": {
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/swagger": "^5.2.0",
+    "@nestjs/testing": "^8.0.0",
+    "@types/couchbase": "2.4.1",
+    "@types/express": "^4.17.13",
+    "@types/jest": "27.4.0",
+    "@types/node": "^16.0.0",
+    "@zmotivat0r/o0": "1.0.2",
+    "class-transformer": "^0.5.1",
+    "commitizen": "^4.2.4",
+    "couchbase": "^3.2.4",
+    "coveralls": "3.0.5",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "2.7.0",
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.15",
+    "npx": "^10.2.2",
+    "prettier": "1.18.2",
+    "pretty-quick": "1.11.1",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "^7.2.0",
+    "swagger-ui-express": "^4.0.7",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.10.1",
+    "tslint": "5.18.0",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "^4.3.5",
+    "validate-commit-msg": "^1.1.3",
+    "webpack": "^5.69.1"
+  }
+}
